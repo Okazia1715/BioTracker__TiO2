@@ -1,0 +1,5 @@
+Folder: C:\MIT\elo2 github\individual_project\1_datasets\Colon_Benign_Tissue
+Checked images: 500
+Unreadable/corrupted images: 0
+Image size counts (W x H):
+  768 x 768: 500
