@@ -1,4 +1,4 @@
-""""
+""" "
 
 This script preprocesses histology images by:
 - inverting pixel intensities
