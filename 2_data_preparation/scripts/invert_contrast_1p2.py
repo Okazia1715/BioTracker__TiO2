@@ -15,6 +15,7 @@ from pathlib import Path
 import numpy as np
 from PIL import Image
 
+
 def apply_contrast_uint8(img_u8: np.ndarray, factor: float) -> np.ndarray:
     """
     Contrast around mid-gray 128 for uint8 images:
