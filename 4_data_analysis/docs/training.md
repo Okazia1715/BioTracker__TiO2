@@ -125,3 +125,19 @@ Future work should include:
 - Held-out validation subset
 - Dice/IoU benchmarking
 - Cross-dataset validation
+
+## Note
+
+As a result of GitHub repository size restrictions, the Cellpose
+models have also been made available as part of the project dataset
+on Kaggle.
+
+[https://www.kaggle.com/datasets/alonaniechvieieva/colon-microscopy-dataset-for-segmentation]
+
+These models can be downloaded from the dataset and subsequently
+placed into the models/ directory.
+
+When using these models for segmentation, it is advised that the
+colon5 model is used, as it is the final model resulting from the
+human-in-the-loop training process and provides the most stable
+results on the microscopy images used in this project.
