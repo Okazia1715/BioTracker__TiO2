@@ -1,0 +1,22 @@
+Potential low-contrast / near-uniform images (lowest std first):
+path, mean, std, min, max
+C:/MIT/elo2 github/individual_project/2_data_preparation/Colon_Benign_Tissue_invert_contrast1p2/colonn979.png, 32.26, 34.69, 0, 247
+C:/MIT/elo2 github/individual_project/2_data_preparation/Colon_Benign_Tissue_invert_contrast1p2/colonn3685.png, 19.87, 35.25, 0, 244
+C:/MIT/elo2 github/individual_project/2_data_preparation/Colon_Benign_Tissue_invert_contrast1p2/colonn4853.png, 30.52, 36.58, 0, 242
+C:/MIT/elo2 github/individual_project/2_data_preparation/Colon_Benign_Tissue_invert_contrast1p2/colonn3466.png, 48.23, 38.03, 0, 242
+C:/MIT/elo2 github/individual_project/2_data_preparation/Colon_Benign_Tissue_invert_contrast1p2/colonn2825.png, 39.46, 38.59, 0, 245
+C:/MIT/elo2 github/individual_project/2_data_preparation/Colon_Benign_Tissue_invert_contrast1p2/colonn2075.png, 24.32, 39.93, 0, 244
+C:/MIT/elo2 github/individual_project/2_data_preparation/Colon_Benign_Tissue_invert_contrast1p2/colonn3855.png, 35.73, 40.05, 0, 245
+C:/MIT/elo2 github/individual_project/2_data_preparation/Colon_Benign_Tissue_invert_contrast1p2/colonn4205.png, 45.77, 40.31, 0, 250
+C:/MIT/elo2 github/individual_project/2_data_preparation/Colon_Benign_Tissue_invert_contrast1p2/colonn1319.png, 47.72, 40.33, 0, 249
+C:/MIT/elo2 github/individual_project/2_data_preparation/Colon_Benign_Tissue_invert_contrast1p2/colonn3994.png, 35.18, 40.34, 0, 247
+C:/MIT/elo2 github/individual_project/2_data_preparation/Colon_Benign_Tissue_invert_contrast1p2/colonn3280.png, 30.79, 40.44, 0, 243
+C:/MIT/elo2 github/individual_project/2_data_preparation/Colon_Benign_Tissue_invert_contrast1p2/colonn1037.png, 39.29, 40.67, 0, 251
+C:/MIT/elo2 github/individual_project/2_data_preparation/Colon_Benign_Tissue_invert_contrast1p2/colonn1589.png, 45.12, 40.97, 0, 242
+C:/MIT/elo2 github/individual_project/2_data_preparation/Colon_Benign_Tissue_invert_contrast1p2/colonn407.png, 29.83, 41.28, 0, 246
+C:/MIT/elo2 github/individual_project/2_data_preparation/Colon_Benign_Tissue_invert_contrast1p2/colonn345.png, 45.46, 41.30, 0, 251
+C:/MIT/elo2 github/individual_project/2_data_preparation/Colon_Benign_Tissue_invert_contrast1p2/colonn2135.png, 32.34, 41.45, 0, 243
+C:/MIT/elo2 github/individual_project/2_data_preparation/Colon_Benign_Tissue_invert_contrast1p2/colonn4748.png, 40.57, 41.52, 0, 248
+C:/MIT/elo2 github/individual_project/2_data_preparation/Colon_Benign_Tissue_invert_contrast1p2/colonn3178.png, 30.63, 41.59, 0, 246
+C:/MIT/elo2 github/individual_project/2_data_preparation/Colon_Benign_Tissue_invert_contrast1p2/colonn1461.png, 34.81, 41.79, 0, 247
+C:/MIT/elo2 github/individual_project/2_data_preparation/Colon_Benign_Tissue_invert_contrast1p2/colonn3948.png, 38.95, 41.83, 0, 244

@@ -1,0 +1,22 @@
+Potential low-contrast / near-uniform images (lowest std first):
+path, mean, std, min, max
+C:/MIT/elo2 github/individual_project/1_datasets/Colon_Benign_Tissue/colonn3396.jpeg, 226.45, 29.59, 46, 255
+C:/MIT/elo2 github/individual_project/1_datasets/Colon_Benign_Tissue/colonn3287.jpeg, 201.63, 30.28, 18, 255
+C:/MIT/elo2 github/individual_project/1_datasets/Colon_Benign_Tissue/colonn4218.jpeg, 201.04, 30.93, 16, 255
+C:/MIT/elo2 github/individual_project/1_datasets/Colon_Benign_Tissue/colonn4391.jpeg, 198.09, 32.52, 13, 255
+C:/MIT/elo2 github/individual_project/1_datasets/Colon_Benign_Tissue/colonn4258.jpeg, 213.90, 33.61, 10, 255
+C:/MIT/elo2 github/individual_project/1_datasets/Colon_Benign_Tissue/colonn4641.jpeg, 205.88, 34.36, 6, 255
+C:/MIT/elo2 github/individual_project/1_datasets/Colon_Benign_Tissue/colonn3912.jpeg, 209.62, 34.83, 9, 255
+C:/MIT/elo2 github/individual_project/1_datasets/Colon_Benign_Tissue/colonn989.jpeg, 220.67, 35.14, 13, 255
+C:/MIT/elo2 github/individual_project/1_datasets/Colon_Benign_Tissue/colonn3052.jpeg, 208.24, 35.23, 15, 255
+C:/MIT/elo2 github/individual_project/1_datasets/Colon_Benign_Tissue/colonn1838.jpeg, 205.05, 35.60, 14, 255
+C:/MIT/elo2 github/individual_project/1_datasets/Colon_Benign_Tissue/colonn1572.jpeg, 207.28, 35.66, 16, 255
+C:/MIT/elo2 github/individual_project/1_datasets/Colon_Benign_Tissue/colonn3759.jpeg, 193.71, 35.70, 13, 255
+C:/MIT/elo2 github/individual_project/1_datasets/Colon_Benign_Tissue/colonn4141.jpeg, 208.54, 35.79, 15, 255
+C:/MIT/elo2 github/individual_project/1_datasets/Colon_Benign_Tissue/colonn4170.jpeg, 207.17, 35.96, 15, 255
+C:/MIT/elo2 github/individual_project/1_datasets/Colon_Benign_Tissue/colonn3503.jpeg, 202.80, 36.07, 13, 255
+C:/MIT/elo2 github/individual_project/1_datasets/Colon_Benign_Tissue/colonn2666.jpeg, 204.84, 36.11, 6, 255
+C:/MIT/elo2 github/individual_project/1_datasets/Colon_Benign_Tissue/colonn4259.jpeg, 196.81, 36.36, 9, 255
+C:/MIT/elo2 github/individual_project/1_datasets/Colon_Benign_Tissue/colonn1378.jpeg, 209.56, 36.43, 15, 255
+C:/MIT/elo2 github/individual_project/1_datasets/Colon_Benign_Tissue/colonn1318.jpeg, 197.96, 36.50, 8, 255
+C:/MIT/elo2 github/individual_project/1_datasets/Colon_Benign_Tissue/colonn1951.jpeg, 206.02, 36.80, 14, 255

@@ -1,0 +1,2 @@
+RAW_DIR:  C:\MIT\elo2 github\individual_project\1_datasets\Colon_Benign_Tissue
+PROC_DIR: C:\MIT\elo2 github\individual_project\2_data_preparation\Colon_Benign_Tissue_invert_contrast1p2

@@ -1,0 +1,5 @@
+Folder: C:\MIT\elo2 github\individual_project\2_data_preparation\Colon_Benign_Tissue_invert_contrast1p2
+Checked images: 500
+Unreadable/corrupted images: 0
+Image size counts (W x H):
+  768 x 768: 500
