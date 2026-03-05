@@ -12,9 +12,9 @@ life sciences, or technicians in the field of biology or life
 sciences. They are usually dealing with PNG or TIFF image files of
 microscopy images. They are usually required to perform segmentation
 of cells or quantitative analysis of particles inside or outside the
-cell. They are usually using image segmentation tools like ImageJ or
-Fiji to perform the required analysis. They are usually required to
-export the data to Microsoft Excel for performing statistical
+cell. They are usually using image segmentation tools like ImageJ
+or Fiji to perform the required analysis. They are usually required
+to export the data to Microsoft Excel for performing statistical
 analysis. They are usually experts in their field of life sciences
 but are not experts in machine learning, Python, or environment
 setup.
