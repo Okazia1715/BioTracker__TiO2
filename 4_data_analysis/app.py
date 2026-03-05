@@ -50,8 +50,8 @@ from skimage.feature import blob_log
 # -----------------------------
 # CONFIG for extra stats
 # -----------------------------
-CLUSTER_EPS_PX = 6          # dilation radius for clustering (pixels)
-NEAR_BOUNDARY_PX = 2.0      # "near boundary" threshold (pixels)
+CLUSTER_EPS_PX = 6  # dilation radius for clustering (pixels)
+NEAR_BOUNDARY_PX = 2.0  # "near boundary" threshold (pixels)
 
 
 # -----------------------------
@@ -252,7 +252,9 @@ def sample_positions_no_overlap(
         p_inside = w_inside / (w_inside + w_outside + 1e-12)
         use_inside = rng.random() < p_inside
 
-        pool = inside_coords if use_inside and inside_coords.size > 0 else outside_coords
+        pool = (
+            inside_coords if use_inside and inside_coords.size > 0 else outside_coords
+        )
         if pool.size == 0:
             pool = inside_coords if inside_coords.size > 0 else outside_coords
         if pool.size == 0:
@@ -297,7 +299,9 @@ def generate_synthetic_particles(
 
     bias = 5.0 if mode == "accumulation" else 1.0
 
-    small = sample_positions_no_overlap(in_cells, n_small, small_d, bias, rng, centers_full)
+    small = sample_positions_no_overlap(
+        in_cells, n_small, small_d, bias, rng, centers_full
+    )
     centers_full.extend(small)
     big = sample_positions_no_overlap(in_cells, n_big, big_d, bias, rng, centers_full)
     centers_full.extend(big)
@@ -332,7 +336,9 @@ def load_particle_tif_any(path: Path) -> np.ndarray:
         if arr.shape[-1] <= 4:
             arr2 = arr[..., :3] if arr.shape[-1] >= 3 else arr[..., 0]
             if arr2.ndim == 3:
-                arr2 = 0.299 * arr2[..., 0] + 0.587 * arr2[..., 1] + 0.114 * arr2[..., 2]
+                arr2 = (
+                    0.299 * arr2[..., 0] + 0.587 * arr2[..., 1] + 0.114 * arr2[..., 2]
+                )
             arr = arr2
         else:
             arr = arr[0]
@@ -367,7 +373,9 @@ def detect_particles_log(p_img_float: np.ndarray) -> np.ndarray:
 # -----------------------------
 # Overlay rendering (Cellpose-like)
 # -----------------------------
-def make_overlay(rgb: np.ndarray, masks: np.ndarray, centers_yx: np.ndarray) -> np.ndarray:
+def make_overlay(
+    rgb: np.ndarray, masks: np.ndarray, centers_yx: np.ndarray
+) -> np.ndarray:
     """Colored masks blended over image + particle centers as red dots."""
     base = rgb.astype(np.float32) / 255.0
     mask_rgb = label2rgb(
@@ -418,7 +426,9 @@ def count_clusters_from_centers(
     return max(0, int(num - 1))
 
 
-def compute_particle_stats(centers_yx: np.ndarray, masks: np.ndarray) -> dict[str, float]:
+def compute_particle_stats(
+    centers_yx: np.ndarray, masks: np.ndarray
+) -> dict[str, float]:
     """
     Returns per-image stats:
     - n_cells
@@ -488,7 +498,11 @@ def compute_particle_stats(centers_yx: np.ndarray, masks: np.ndarray) -> dict[st
     clusters = count_clusters_from_centers(centers_yx, (H, W), eps_px=CLUSTER_EPS_PX)
 
     # distances to boundary for in-cell particles only
-    dist_in = dt[ys[in_cells], xs[in_cells]] if np.any(in_cells) else np.array([], dtype=np.float32)
+    dist_in = (
+        dt[ys[in_cells], xs[in_cells]]
+        if np.any(in_cells)
+        else np.array([], dtype=np.float32)
+    )
     if dist_in.size > 0:
         mean_dist = float(np.mean(dist_in))
         frac_near = float(np.mean(dist_in <= float(NEAR_BOUNDARY_PX)))
@@ -524,7 +538,9 @@ def write_stats_csv(path: Path, rows: list[dict[str, float | str]]) -> None:
             w.writerow(r)
 
 
-def save_plots_two_groups(out_dir: Path, stats_random: list[dict], stats_acc: list[dict]) -> None:
+def save_plots_two_groups(
+    out_dir: Path, stats_random: list[dict], stats_acc: list[dict]
+) -> None:
     """
     Create figures, each contains BOTH groups (random vs accumulation) in different colors.
     One point = one image.
@@ -535,7 +551,9 @@ def save_plots_two_groups(out_dir: Path, stats_random: list[dict], stats_acc: li
     stats_random = sorted(stats_random, key=lambda d: str(d.get("image", "")))
     stats_acc = sorted(stats_acc, key=lambda d: str(d.get("image", "")))
 
-    def plot_metric(metric: str, title: str, fname: str, ylabel: str | None = None) -> None:
+    def plot_metric(
+        metric: str, title: str, fname: str, ylabel: str | None = None
+    ) -> None:
         plt.figure(figsize=(11, 5))
 
         xr = np.arange(len(stats_random))
@@ -545,7 +563,9 @@ def save_plots_two_groups(out_dir: Path, stats_random: list[dict], stats_acc: li
         ya = np.array([float(d.get(metric, 0.0)) for d in stats_acc], dtype=float)
 
         plt.plot(xr, yr, marker="o", linestyle="None", label="random")
-        plt.plot(xa, ya, marker="o", linestyle="None", label="accumulation (5x in cells)")
+        plt.plot(
+            xa, ya, marker="o", linestyle="None", label="accumulation (5x in cells)"
+        )
 
         plt.title(title)
         plt.xlabel("Image index (within each subgroup, sorted by name)")
@@ -713,7 +733,9 @@ def run_batch(
         diam_used = estimate_diameter_from_masks(masks0, fallback=250.0)
 
         if log_cb:
-            log_cb(f"Estimated diameter from masks = {diam_used:g}px (reused for all images)")
+            log_cb(
+                f"Estimated diameter from masks = {diam_used:g}px (reused for all images)"
+            )
 
     if have_particles:
         masks_dir, parts_dir, ovl_dir = _prepare_out_dirs(out_dir)
@@ -834,7 +856,9 @@ def run_batch(
         if have_particles:
             log_cb(f"Saved results to: {out_dir}")
         else:
-            log_cb(f"Saved results to: {out_dir / 'random'} and {out_dir / 'accumulation'}")
+            log_cb(
+                f"Saved results to: {out_dir / 'random'} and {out_dir / 'accumulation'}"
+            )
 
 
 # -----------------------------
@@ -868,7 +892,9 @@ class App(tk.Tk):
         frm = ttk.Frame(self)
         frm.pack(fill="both", expand=True)
 
-        ttk.Label(frm, text="1) Folder with PNG images:").grid(row=0, column=0, sticky="w", **pad)
+        ttk.Label(frm, text="1) Folder with PNG images:").grid(
+            row=0, column=0, sticky="w", **pad
+        )
         ttk.Entry(frm, textvariable=self.images_dir, width=72).grid(
             row=1, column=0, sticky="we", **pad
         )
@@ -903,7 +929,9 @@ class App(tk.Tk):
             command=self.toggle_particles_ui,
         ).grid(row=6, column=0, sticky="w", **pad)
 
-        ttk.Label(frm, text="Particle maps folder:").grid(row=7, column=0, sticky="w", **pad)
+        ttk.Label(frm, text="Particle maps folder:").grid(
+            row=7, column=0, sticky="w", **pad
+        )
 
         self.ent_particles = ttk.Entry(
             frm, textvariable=self.particles_dir, width=72, state="disabled"
@@ -937,15 +965,19 @@ class App(tk.Tk):
         dfrm.grid(row=11, column=0, sticky="w", **pad)
         ttk.Label(dfrm, text="Cell diameter (px):").pack(side="left")
         ttk.Entry(dfrm, textvariable=self.diameter, width=8).pack(side="left", padx=8)
-        ttk.Button(dfrm, text="Auto", command=self.set_diameter_auto).pack(side="left", padx=6)
-        ttk.Checkbutton(dfrm, text="Use GPU (if available)", variable=self.use_gpu).pack(
-            side="left", padx=14
+        ttk.Button(dfrm, text="Auto", command=self.set_diameter_auto).pack(
+            side="left", padx=6
         )
+        ttk.Checkbutton(
+            dfrm, text="Use GPU (if available)", variable=self.use_gpu
+        ).pack(side="left", padx=14)
 
         self.btn_run = ttk.Button(frm, text="Run", command=self.on_run)
         self.btn_run.grid(row=12, column=0, sticky="w", **pad)
 
-        self.pb = ttk.Progressbar(frm, orient="horizontal", length=540, mode="determinate")
+        self.pb = ttk.Progressbar(
+            frm, orient="horizontal", length=540, mode="determinate"
+        )
         self.pb.grid(row=13, column=0, sticky="we", **pad)
         self.lbl_status = ttk.Label(frm, text="Idle")
         self.lbl_status.grid(row=13, column=1, sticky="e", **pad)
@@ -1009,7 +1041,9 @@ class App(tk.Tk):
         model_path = Path(self.model_path.get().strip())
 
         out_dir_raw = self.out_dir.get().strip()
-        out_dir = Path(out_dir_raw) if out_dir_raw else (images_dir / "cellpose_results")
+        out_dir = (
+            Path(out_dir_raw) if out_dir_raw else (images_dir / "cellpose_results")
+        )
 
         if not images_dir.exists():
             raise FileNotFoundError("Images folder does not exist.")
@@ -1083,10 +1117,14 @@ class App(tk.Tk):
                     use_gpu=args[6],
                     n_small=args[7],
                     n_big=args[8],
-                    progress_cb=lambda i, n, st: self.after(0, self.set_progress, i, n, st),
+                    progress_cb=lambda i, n, st: self.after(
+                        0, self.set_progress, i, n, st
+                    ),
                     log_cb=lambda s: self.after(0, self.log, s),
                 )
-                self.after(0, messagebox.showinfo, "Done", "Processing finished successfully.")
+                self.after(
+                    0, messagebox.showinfo, "Done", "Processing finished successfully."
+                )
             except Exception as e:  # noqa: BLE001
                 err = "".join(traceback.format_exception(type(e), e, e.__traceback__))
                 self.after(0, self.log, "ERROR:\n" + err)
@@ -1100,4 +1138,3 @@ class App(tk.Tk):
 
 if __name__ == "__main__":
     App().mainloop()
-
