@@ -83,7 +83,7 @@ files with documentation. The audience should also understand how
 the process of quantitative analysis reduces bias and increases
 reproducibility between experiments.
 
-### 6. Communication Strategy
+### 6 Communication Strategy
 
 My approach will be centered on three main concepts: visual
 clarity, openness, and simplicity. First, I have to consider the
